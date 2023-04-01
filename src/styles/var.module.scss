@@ -1,0 +1,129 @@
+/*===================================*/
+// _var.module PUBLIC STYLE VALUE
+// ・全てのコンポーネントから色や設定を参照
+/*===================================*/
+@use "sass:math";
+
+/*=======================*/
+// Color
+/*=======================*/
+$c-bg: #120226;
+$c-base: #ffffff;
+$c-yellow: #ffbc0d;
+$c-red: #db0007;
+
+$c-twitter: #1d9bf0;
+$c-line: #00b900;
+$c-facebook: #1877f2;
+
+/*=======================*/
+// Value
+/*=======================*/
+$maxWidth: 1440;
+$SPDesignWidth: 375;
+$breakpoint: 1024;
+$breakpoint-pc: 1024;
+
+$main-area-max-width: 99999;
+
+// コンテンツ両脇の空白
+$padding-side: 190;
+$padding-side-sp: 25;
+
+$rootFontSizePc: 28;
+$rootFontSizeSp: 16;
+
+$easeOutCubic: cubic-bezier(0.33, 1, 0.68, 1);
+$easeOutCirc: cubic-bezier(0, 0.55, 0.45, 1);
+$easeOutQuint: cubic-bezier(0.22, 1, 0.36, 1);
+$easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+$easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
+$easeOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);
+$easeInCubic: cubic-bezier(0.32, 0, 0.67, 0);
+$easeInQuint: cubic-bezier(0.64, 0, 0.78, 0);
+$easeInBack: cubic-bezier(0.36, 0, 0.66, -0.56);
+
+// SPデザイン上のピクセル数を引数に与えるとちょうどデザイン幅のSPで見た時デザイン通りになる動的な値を返してくれる関数
+@function dynamicWidthSP($width) {
+  @return ($width / $SPDesignWidth) * 100vw;
+}
+
+@mixin font($size: 16, $height: 1.8, $letspa: 0.05, $weight: 400, $fam: "") {
+  font-size: $size * 1px;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $letspa * 1em;
+}
+
+@mixin fontRem($size: 1, $height: 1.8, $letspa: 0.05, $weight: 400, $fam: "") {
+  font-size: $size * 1rem;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $letspa * 1em;
+}
+
+@mixin fontPxToRemPc(
+  $size: 16,
+  $height: 1.8,
+  $letspa: 0.05,
+  $weight: 400,
+  $fam: ""
+) {
+  font-size: math.div($size, $rootFontSizePc) * 1rem;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $letspa * 1em;
+}
+
+@mixin fontPxToRemSp(
+  $size: 16,
+  $height: 1.8,
+  $letspa: 0.05,
+  $weight: 400,
+  $fam: ""
+) {
+  font-size: math.div($size, $rootFontSizeSp) * 1rem;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $letspa * 1em;
+}
+
+@mixin fontSizePxToRemPc($size: 16) {
+  font-size: math.div($size, $rootFontSizePc) * 1rem;
+}
+@mixin fontSizePxToRemSp($size: 16) {
+  font-size: math.div($size, $rootFontSizeSp) * 1rem;
+}
+
+@mixin centerFlex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin centerAbs($top: 50%, $left: 50%, $transformX: 50%, $transformY: 50%) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate(-1 * $transformX, -1 * $transformY);
+}
+
+@mixin centerAbsX() {
+  @include centerAbs(0, 50%, 50%, 0);
+}
+
+@mixin centerAbsY() {
+  @include centerAbs(50%, 0, 0, 50%);
+}
+
+//JSに対して出力
+:export {
+  c-bg: $c-bg;
+  c-base: $c-base;
+  c-yellow: $c-yellow;
+  c-red: $c-red;
+  breakpoint: $breakpoint;
+  breakpointPC: $breakpoint-pc;
+  padding-side: $padding-side;
+  padding-side-sp: $padding-side-sp;
+}
