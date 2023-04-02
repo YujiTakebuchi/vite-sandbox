@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { EmotionTest } from "./componets/Test";
 import { Image, Picture } from "./componets/atomic/Media";
+import { Copyright, Paragraph } from "./componets/atomic/Text";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -36,6 +37,8 @@ function App() {
         srcSet={`/assets/images/too_cute@2x.jpg 2x`}
       />
       <Image src={`/assets/images/too_cute.jpg`} />
+      <Paragraph>過去最高のベストショット</Paragraph>
+      <Copyright>©︎ epsilon 2013</Copyright>
     </div>
   );
 }
