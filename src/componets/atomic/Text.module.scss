@@ -1,0 +1,19 @@
+@import "../../styles/var.module";
+
+.paragraph {
+  @include fontPxToRemPc(28, 1.8, 0.1, 700);
+}
+
+.copyright {
+  @include fontPxToRemPc(14, 1.8, 0.1, 700);
+}
+
+@media (max-width: #{$breakpoint}px) {
+  .paragraph {
+    @include fontSizePxToRemSp(16);
+  }
+
+  .copyright {
+    @include fontSizePxToRemSp(12);
+  }
+}

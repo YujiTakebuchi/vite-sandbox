@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { EmotionTest } from "./componets/Test";
+import { Image, Picture } from "./componets/atomic/Media";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,6 +31,11 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <EmotionTest />
+      <Picture
+        src={`/assets/images/too_cute.jpg`}
+        srcSet={`/assets/images/too_cute@2x.jpg 2x`}
+      />
+      <Image src={`/assets/images/too_cute.jpg`} />
     </div>
   );
 }
