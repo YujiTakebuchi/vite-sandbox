@@ -1,4 +1,12 @@
 import styles from "./Media.module.scss";
+export function Figure(props) {
+  return (
+    <figure className={`${styles["figure"]}`} css={props.cssOverrides}>
+      {props.children}
+      <figcaption>{props.figcaption}</figcaption>
+    </figure>
+  );
+}
 
 export function Picture(props) {
   return (
