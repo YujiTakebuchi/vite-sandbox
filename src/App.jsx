@@ -3,13 +3,16 @@ import variable from "./styles/var.module.scss";
 import "./App.css";
 import { EmotionTest } from "./componets/Test";
 import { Figure, Image, Picture } from "./componets/atomic/Media";
-import { Copyright, Paragraph } from "./componets/atomic/Text";
+import { Copyright, H1, H2, H3, Paragraph } from "./componets/atomic/Text";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
+      <H1>h1タイトル</H1>
+      <H2>h2タイトル</H2>
+      <H3>h3タイトル</H3>
       <EmotionTest />
       <Figure figcaption={`世界一かわいい`}>
         <Picture
