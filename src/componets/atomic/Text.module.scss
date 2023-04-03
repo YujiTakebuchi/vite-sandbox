@@ -1,5 +1,17 @@
 @import "../../styles/var.module";
 
+.h1 {
+  @include fontPxToRemPc(40, 1.8, 0.1, 700);
+}
+
+.h2 {
+  @include fontPxToRemPc(36, 1.8, 0.1, 700);
+}
+
+.h3 {
+  @include fontPxToRemPc(32, 1.8, 0.1, 700);
+}
+
 .paragraph {
   @include fontPxToRemPc(28, 1.8, 0.1, 700);
 }
@@ -9,6 +21,17 @@
 }
 
 @media (max-width: #{$breakpoint}px) {
+  .h1 {
+    @include fontSizePxToRemSp(32);
+  }
+
+  .h2 {
+    @include fontSizePxToRemSp(26);
+  }
+
+  .h3 {
+    @include fontSizePxToRemSp(20);
+  }
   .paragraph {
     @include fontSizePxToRemSp(16);
   }
